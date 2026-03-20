@@ -1,0 +1,37 @@
+# Standard ignores
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
+venv/
+env/
+.DS_Store
+
+# -----------------------------------------------------------------
+# Data Directory Rules (OldData)
+# -----------------------------------------------------------------
+
+# 1) Exclude all CSVs by default to prevent committing large/intermediate files
+OldData/*.csv
+
+# 2) Whitelist ONLY the original raw data necessary for viewers to understand 
+# the source condition and recreate the analytical metrics.
+!OldData/GDP per capita (PPP).csv
+!OldData/Natural Disaster.csv
+!OldData/population_projections.csv
+!OldData/Gov Index.csv
+!OldData/GDP growth (annual %).csv
+!OldData/Human Development Index.csv
+
+# Whitelist exploratory raw data evaluated during the project 
+!OldData/access_drinking_water_stacked.csv
+!OldData/access_to_sanitation_facilities.csv
+!OldData/electricity_access_vs_energy_consumption.csv
+!OldData/extreme_poverty_share.csv
+!OldData/gdp_per_capita_worldbank.csv
+!OldData/gdp_worldbank.csv
+!OldData/gini_index.csv
+!OldData/natural_disaster_deaths.csv
+!OldData/political_corruption_index.csv
+!OldData/social_spending_oecd_longrun.csv
+!OldData/total_healthcare_expenditure_gdp.csv

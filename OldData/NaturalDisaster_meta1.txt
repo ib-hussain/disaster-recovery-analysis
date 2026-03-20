@@ -1,0 +1,8 @@
+Source,EM-DAT, CRED  UCLouvain, Brussels, Belgium
+data source: https://public.emdat.be/data
+sources for data at the site:
+https://doc.emdat.be/docs/data-structure-and-content/emdat-sources/ 
+Glossary,https://www.emdat.be/
+Version,2025-11-21
+File creation,Tue, 25 Nov 2025 072634 UTC
+Table type ,public_emdat_custom_request

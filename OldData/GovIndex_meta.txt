@@ -1,0 +1,58 @@
+1. ISO
+3-letter country code
+2. year
+Year of the governance estimate 
+3. indicator
+This specifies which of the six WGI governance indicators the row refers to.
+Codes (from WGI documentation):
+Code	Meaning
+va	Voice and Accountability
+pv	Political Stability / Absence of Violence
+ge	Government Effectiveness
+rq	Regulatory Quality
+rl	Rule of Law
+cc	Control of Corruption
+4. estimate → Govindex
+This is the core governance score, what you are calling Govindex.
+Definition:
+A standardized score ranging roughly from –2.5 (very weak) to +2.5 (very strong) governance performance.
+It is a z-score (standard normal unit).
+Interpretation:
+Value	Meaning
++2.0	exceptionally strong governance
++1.0	above average
+0.0	global average
+–1.0	weak governance
+–2.0	extremely weak governance
+Example:
+AFG, 1996, cc, -1.29 → Afghanistan had very poor control of corruption.
+5. stddev
+Standard error of the estimate
+Shows the uncertainty around the governance score
+Higher = less certain, lower = more precise
+6. nsource
+Number of independent data sources used to estimate governance for that country & year.
+WGI combines multiple surveys, expert assessments, business indicators.
+Example:
+nsource = 6 (Australia) = strong, consistent measurement
+nsource = 1 (Antigua) = sparse data, less reliable
+7. pctrank
+This is the percentile rank (0–100):
+“How does the country compare to all others in the world?”
+Example:
+Australia 1996: pctrank = 93.5
+→ Australia is better than 93.5% of all countries in Control of Corruption.
+8. pctranklower
+Lower bound of the percentile rank’s 90% confidence interval.
+Example:
+Argentina 1996:
+pctrank = 53.8
+pctranklower = 38.7
+→ We are 90% confident Argentina is at least at the 38.7th percentile.
+9. pctrankupper
+Upper bound of the percentile rank’s 90% confidence interval.
+Example:
+Argentina:
+pctrankupper = 62.9
+Meaning:
+Argentina’s governance performance lies between the 38.7th and 62.9th percentile with 90% confidence.

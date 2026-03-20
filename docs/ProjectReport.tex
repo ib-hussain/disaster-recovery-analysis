@@ -1,0 +1,319 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{url}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Quantifying National Resilience: A Data-Driven Assessment Using the Resilience Recovery Score}
+
+\author{
+\IEEEauthorblockN{Ibrahim Hussain}
+\IEEEauthorblockA{\textit{Department of AI and Data Science} \\
+\textit{FAST NUCES}\\
+Islamabad, Pakistan \\
+i232626@isb.nu.edu.pk}
+\and
+\IEEEauthorblockN{Sameer Khan}
+\IEEEauthorblockA{\textit{Department of AI and Data Science} \\
+\textit{FAST NUCES}\\
+Islamabad, Pakistan \\
+i232517@isb.nu.edu.pk}
+}
+\maketitle
+
+\section*{\textbf{ABSTRACT}}
+\textbf{This project develops a data-driven framework for measuring national resilience using multisource global datasets spanning 1998–2023. Three computational indicators were explored—Disaster Impact Index (DII), Composite Resilience Index (CRI), and the Resilience Recovery Score (RRS)—each requiring extensive data cleaning, fusion, and feature engineering across disaster records, macroeconomic indicators, and socio-institutional variables. Although DII and CRI were successfully constructed at the preprocessing stage, structural limitations in their underlying data—extreme numerical compression in DII values and the global absence of reliable disaster-intensity metrics for CRI—prevented meaningful interpretation or visualisation. The primary analytical focus, therefore, centred on RRS, for which a fully merged and temporally aligned dataset (RSS\_v11.csv) was produced using an ID-based inner-join strategy to preserve disaster-year fidelity. The resulting dataset revealed coherent, interpretable patterns in post-disaster GDP rebound, institutional quality, and human development, enabling the construction of robust visualisations that capture cross-country differences in recovery speed and adaptive capacity. The study demonstrates that RRS provides a stable and practical quantitative lens for assessing national resilience, while simultaneously highlighting the broader data challenges that affect global disaster analytics.}
+
+\section*{Introduction}
+\noindent
+Understanding how nations withstand, absorb, and recover from disasters has become a central challenge of modern data-driven risk analytics. Despite the increasing frequency of floods, earthquakes, wildfires, and socio-economic shocks, there is no universally accepted quantitative definition of “resilience.” As noted in the project brief, organisations such as the Global Disaster and Humanitarian Response Agency (GDHRA) require analytical frameworks that can integrate fragmented historical records, socio-economic indicators, and governance metrics to illuminate why some countries bounce back quickly while others remain trapped in prolonged stagnation.
+
+This project addresses this challenge by developing and evaluating computational representations of national resilience using publicly available global datasets from 2011 to 2023. We initially explored three candidate indices proposed conceptually in the brief: the Disaster Impact Index (DII), the Composite Resilience Index (CRI), and the Resilience Recovery Score (RRS). Each index required substantial data fusion, engineering, and the creation of entirely new variables. Through iterative testing, however, it became clear that DII and CRI suffered from structural data limitations—extreme numerical skew in DII due to GDP-dominated denominators and the absence of global exposure-intensity datasets for CRI—making them unsuitable for meaningful visual, statistical, or comparative analysis. In contrast, the RRS, which focuses on differential GDP growth before and after disasters and incorporates governance and human-development metrics, proved computationally robust, empirically interpretable, and sufficiently expressive to capture real-world resilience patterns.
+
+In this report, we document the full analytical workflow—including data acquisition, preprocessing, merging logic, variable creation, and validation—and then evaluate resilience globally using the final RRS dataset (RSS\_v11), consisting of 7,038 merged country–year disaster observations. Our goal is not only to compute resilience but to understand its structure: which countries recover fastest, which remain chronically vulnerable, and which socio-economic attributes best explain recovery. By integrating high-dimensional visualisation, temporal analysis, and engineered metrics, this study aims to provide a replicable methodological foundation for computational resilience analysis and serve as a prototype for the disaster-intelligence platforms envisioned by GDHRA.
+
+\section*{Aims \& Hypotheses}
+
+This study investigates the structural determinants of national disaster resilience through a new metric, the Resilience Recovery Score (RRS). Drawing on a multi-decade, multi-source dataset (1998–2023), the project examines whether economic strength and modern governance capacities translate into faster and more stable post-disaster recovery. The analysis integrates GDP growth dynamics, governance quality, human development, and disaster-event characteristics into a single computational framework.
+
+Together, these components capture both the economic velocity of recovery and the structural conditions—human development and governance quality—that shape long-term resilience. The study examines two central hypotheses.
+
+\subsection*{Hypothesis A: The Development–Resilience Link}
+\textbf{H1:} Higher levels of economic development indirectly promote stronger disaster recovery by improving human development and societal well-being, but it remains unclear whether this established HDI–happiness relationship extends to enhanced RRS performance.
+
+This hypothesis interrogates a commonly assumed developmental gradient: that countries with stronger economies tend to deliver better living standards and higher subjective well-being, and should therefore also demonstrate superior resilience. However, RRS introduces a dynamic component—speed and strength of post-disaster GDP rebound—that may not scale proportionally with economic growth or prosperity. Hypothesis A therefore tests whether the well-known triad of GDP → HDI → Happiness indeed translates into measurable improvements in disaster-recovery performance.
+
+\subsection*{Hypothesis B: The Disproportionate Leverage of Modern Governance Capacity on Regional Resilience}
+\textbf{H2:} Modern governance capacity—supported by technological innovation, information systems, and institutional coordination—acts as a multiplier of resilience, improving RRS more strongly than economic factors alone, with significant variation across global regions.
+
+This hypothesis proposes that resilience in the twenty-first century is increasingly shaped by governance quality, particularly governments’ ability to monitor, prepare for, and respond to disasters using contemporary technologies. Advances in satellite monitoring, digital early-warning systems, mobile communication penetration, and data-driven public administration may allow some states to recover more quickly despite having modest income levels. Conversely, weaker governance may suppress resilience even in relatively wealthy countries. Hypothesis B, therefore, tests whether institutional effectiveness and technological adoption outperform pure economic strength in explaining cross-national variation in RRS.
+
+\section*{Methodology}
+The methodological pipeline for this project consisted of three major phases: (1) construction and cleaning of the DII, CRI, and RRS datasets, (2) evaluation of index viability through numerical and visual diagnostics, and (3) final integration and enhancement of the RRS dataset (RSS\_v11) for resilience analytics and visualisation.
+
+\paragraph{Data Acquisition and Multi-Source Fusion}
+Following project requirements, we acquired datasets from EM-DAT, the World Bank, UNDP, Our World in Data, and additional sources covering macroeconomic, demographic, social, and disaster-event variables between 1998 and 2023. Each raw dataset was loaded, cleaned, harmonised, and aligned on \texttt{Country}–\texttt{Year} pairs. Special care was taken to retain low-income nations with sparse reporting, consistent with the “Invisible Poor” concern raised in the case study, ensuring that filtering or listwise deletion did not erase entire geographic or income groups from the analysis.
+
+\paragraph{Index 1: DII Construction and Failure Analysis}
+The Disaster Impact Index (DII) required integrating natural-disaster records with national economic and demographic indicators. After cleaning the disaster dataset, we computed fatalities per million, affected population ratios, and normalised GDP denominators. However, numerical evaluation revealed a fatal structural issue: more than 97\% of calculated DII values fell below 10, and over 90\% were below 0.5 due to the very small numerator being divided by extremely large GDP values. Attempts to mitigate this—including GDP rescaling into billions and applying logarithmic transformations—did not meaningfully improve distribution spread or interpretability. DII visualisations collapsed into near-flat lines, offering no analytical value; thus, the DII index was formally abandoned.
+
+\paragraph{Index 2: CRI Construction and Feasibility Failure}
+The Composite Resilience Index (CRI) required vulnerability, exposure, and adaptive-capacity metrics. While vulnerability and adaptive capacity were constructed successfully—using 12 merged datasets with eventual reduction from 31 to 21 variables—the exposure component proved infeasible. Exposure required \emph{frequency × intensity} of disaster events. Although frequency datasets existed, they were not downloadable (view-only sources), and no global dataset provided intensity values in any compatible form. Consequently, the CRI dataset was constructed, but the CRI formula itself could not be completed, rendering the index analytically unusable.
+
+\paragraph{Index 3: RRS Construction, Enhancement, and Validation}
+The Resilience Recovery Score (RRS) proved to be the most viable and meaningful index. It required computing pre-disaster GDP growth baselines, post-disaster rebound rates, recovery times, and governance and human-development scores. We engineered the key metric \texttt{recovery\_years} by determining the number of years required for GDP per capita growth to return to or exceed its three-year pre-disaster baseline, following the formal logic documented in the supporting files. The RRS formula was implemented exactly as defined
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\linewidth]{visual/RRS-Formula.png}
+\caption{Average RRS of different countries. }
+\label{fig:RRS-Formula}
+\end{figure}
+Governance z-scores were between -2.5 - 2.5; HDI values were rescaled to 0–100; and non-disaster years were assigned null recovery values.
+
+\paragraph{Final Dataset Integration: RSS\_v11}
+The final RRS-derived dataset was visualised through choropleths, scatter/bubble plots, and resilience comparison charts. Tableau served as the primary front-end for interactive exploration, while Python supported data pre-processing. 
+
+To merge disaster-event data (DII\_v5) with macroeconomic data (RSS\_v9), we used a row-synchronised merge based on \texttt{Country}, \texttt{Year}, and a generated intra-year row identifier. Only rows where both datasets contained matching IDs were merged, producing RSS\_v11 with 7,038 valid disaster-year observations. This final dataset preserved both disaster frequency and GDP-recovery structure and demonstrated excellent internal consistency, as its row count closely aligned with the number of valid disaster events across the decade.
+
+\paragraph{Diagnostic Evaluation}
+
+The RRS values were examined for anomalies. None appeared numerically abnormal, though Afghanistan exhibited unusually high RRS scores relative to common perception. Since the result emerged from valid inputs and a deterministic formula, it was retained without modification. The overall distribution was sparse but statistically coherent, enabling meaningful downstream visualisations.
+
+\paragraph{Visual Analytics}
+
+The cleaned RRS\_v11 dataset was explored using choropleth maps, scatterplots, density-enhanced bubble charts, and income-group comparative graphics. These visualisations revealed clear resilience disparities across regions and income tiers, validating RRS as an effective computational model for resilience assessment.
+
+\section*{Initial Data Assessment}
+The project began with an extensive exploratory assessment of three resilience-related analytical frameworks: the Disaster Impact Index (DII), the Composite Resilience Index (CRI), and the Resilience Recovery Score (RRS). Although each metric required its own data pipeline, the initial inspection revealed substantial variability in data availability, structure, and analytical feasibility across the three approaches. This made early assessment essential for determining which methodology could ultimately support meaningful resilience measurement.
+
+The DII workflow began with the natural-disaster event dataset, which was cleaned, normalised, and merged with economic indicators such as fatalities, affected population, GDP per capita, and severity weights. However, early visual and statistical evaluations exposed a critical structural issue: more than 97\% of DII values fell below 10, and nearly 90\% were below 0.5. The extreme skew originated from the formula itself—small numerators being divided by very large GDP values—causing the index to collapse toward zero. Attempts to rescale GDP (from per-capita to per-billion) and to apply a logarithmic transformation did not correct this compression. As a result, the DII data produced no meaningful visual patterns, leading to its discontinuation.
+
+The CRI pipeline involved merging twelve heterogeneous datasets corresponding to vulnerability, exposure, and adaptive capacity. These datasets were progressively harmonised, reduced from 31 to 21 features, and cleaned to remove null-heavy rows. Despite these efforts, the final merged dataset contained only 34 countries—a sample too small to support global resilience comparison. More critically, exposure (defined as frequency × intensity) could not be computed. Although frequency datasets existed, they were private and not downloadable, and no credible global dataset provided disaster intensity across all hazard types. Because CRI cannot exist without reliable exposure estimates, this metric was also excluded from further analysis.
+
+In contrast, the RRS dataset demonstrated both feasibility and analytical depth. After merging DII\_v5 with RSS\_v9 using row-level ID matching, the integrated dataset (RSS\_v11) provided over 7,000 aligned rows across multiple countries and years. The additional computation of recovery\_years—based on pre-disaster GDP trends and post-disaster rebound timelines—offered a well-structured resilience measure that overcame the limitations of DII and CRI. The distribution of RRS values was broad but interpretable, revealing meaningful differences across nations without pathological compression. Even anomalies, such as Afghanistan’s surprisingly positive RRS, are traced back to genuine data patterns rather than computational flaws, further validating the robustness of the pipeline.
+
+Overall, the initial assessment highlighted a critical insight: not all resilience metrics are computationally viable at a global scale. While DII and CRI faced structural and data-access barriers, RRS stood out as the only model capable of producing analytically reliable and visually interpretable results. This evaluation guided the methodological shift toward RRS as the primary resilience indicator for the remainder of the project.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\linewidth]{visual/uni-variate2.png}
+\caption{Average RRS of different countries. }
+\label{fig:uni_variate}
+\end{figure}
+
+
+\section*{Visualisations}
+\subsection{Choropleth Map: Global Resilience Recovery Score (RRS) Gradients}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\linewidth]{visual/geo maps for risk and resilience gradients.png}
+\caption{Global choropleth visualisation of the Resilience Recovery Score (RRS), coloured from low resilience (orange) to high resilience (blue). All disaster types (1998–2023) are included, with interactive filters for region, year, and hazard category.}
+\label{fig:dataset_overview}
+\end{figure}
+The choropleth map provides a spatial overview of global RRS patterns, enabling direct visual comparison of resilience gradients across continents, income tiers, and hazard environments. The map is fully interactive, with filters allowing users to isolate specific years (1998–2023), regional groupings, and individual disaster categories, while tooltips report country-level averages for RRS and disaster risk. The colour palette ranges from deep orange (very low average RRS) through neutral beige (approximately zero) to saturated blue (high RRS), ensuring intuitive perceptual contrasts between countries that consistently underperform and those that display rapid post-disaster recovery. Unlike scatterplots that abstract geographic relations, the choropleth preserves true spatial adjacency, making visible the emergence of regional clusters and continental fault-lines in resilience behaviour.
+
+Across all three visual states shown, a clear structural divide emerges between higher-income states with mature governance systems and lower-income countries with slower or more erratic post-disaster GDP bounce-back. Western Europe, Oceania, and parts of East Asia (notably China and Japan) often appear in mid-to-high blue tones, indicating relatively fast economic recovery within shorter recovery windows. This pattern aligns with Hypothesis A, which posits that states with stronger economic foundations—typically those with high HDI and established welfare systems—are more likely to translate pre-existing prosperity into higher RRS outcomes. By contrast, South Asia and parts of Latin America repeatedly exhibit orange or amber shading, signalling prolonged downturns following hazard events or difficulties returning to pre-disaster growth baselines. India and Pakistan, for example, consistently display negative average RRS values across the panels, despite experiencing periods of robust national growth; this divergence highlights the central tension of Hypothesis A: economic expansion alone does not guarantee resilience if recovery is slow relative to the pre-disaster baseline.
+
+The third, fully global representation further reinforces the role of governance capacity, strongly supporting Hypothesis B. Kazakhstan, for instance, appears in a positive (blue) band despite being a mid-income economy with variable growth rates. Its tooltip reveals a positive average RRS, and this aligns with the interpretation that institutional coordination and informational capacity disproportionately enhance recovery speed. This effect is visible in multiple countries that outperform their income peers—Chile, Botswana, and Malaysia—suggesting that the “governance multiplier” can counterbalance moderate GDP trends. Conversely, states with persistently weak institutions, conflict-affected political systems, or limited technological infrastructure show depressed RRS levels even when their macroeconomic performance is not particularly weak. Here, governance quality, early-warning systems, coordination of relief, and data-driven decision-making appear to play a critical role in determining the GDP rebound period.
+
+Taken together, the maps provide a spatially grounded demonstration that resilience is not evenly distributed across the globe. High-performing clusters tend to align with regions characterised by strong governance, robust disaster-preparedness infrastructure, and stable macroeconomic cycles. Low-performing clusters align with areas where institutional fragility, slower administrative response, or underdeveloped information systems prolong the recovery window. The visualisation therefore offers strong evidential support for both hypotheses: while prosperity and human development shape baseline resilience capacity (Hypothesis A), the decisive differentiator—visible both within and across regions—is the quality of governance and the extent to which modern technologies enable states to coordinate, monitor, and recover efficiently (Hypothesis B).
+
+\subsection{Temporal Line Chart: Evolution of Regional Resilience (1998–2023)}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\linewidth]{visual/Evolution of resilience.png}
+\caption{Temporal evolution of the average Resilience Recovery Score (RRS) across world regions (1998–2023). Each coloured line represents a regional mean, with positive values (above the horizontal axis) indicating above-baseline post-disaster recovery rates, and negative values indicating prolonged or incomplete recovery. Colours: Africa (dark blue), Americas (orange), Asia (teal), Europe (green), and Oceania (light green).}
+\label{fig:dataset_overview}
+\end{figure}
+This line-chart visualisation presents the year-by-year evolution of average RRS values for major world regions, capturing how resilience performance has fluctuated over the past twenty-five years. The horizontal axis denotes the calendar year (1998–2023), while the vertical axis plots the regional mean RRS derived from all disaster events recorded in those years. The chart is interactive, allowing users to toggle individual regions, and the overlapping trajectories reveal both short-term volatility and longer-term structural patterns. The zero line serves as an interpretive threshold: values above zero indicate that post-disaster GDP growth exceeded the three-year pre-disaster baseline within the recovery window, whereas values below zero suggest protracted downturns or incomplete recovery.
+
+Across all panels, two characteristics stand out: (1) high volatility, reflecting the inherent instability of GDP growth following disasters, and (2) pronounced inter-regional divergence, which becomes particularly visible in periods of global shocks, such as the 2002–2003 period and the post-2010 era. Europe and Asia consistently display mid-range, moderately positive RRS values, reflecting relatively stable governance structures and well-developed mechanisms for coordinating economic recovery. Oceania oscillates between strong positive spikes and deep troughs, likely reflecting the region’s exposure to high-impact but low-frequency events (such as major cyclones or volcanic activity), which can distort annual averages for small-population states. The Americas reveal an especially sharp downturn around 2021–2022, where the regional average dips markedly below zero, consistent with COVID-era disruptions and the slower recovery of several Latin American economies. Africa, when included in the full view, exhibits persistent volatility and frequent negative excursions, demonstrating the fragility of recovery cycles in the presence of weaker governance capacity, limited buffers, and chronic exposure to compound risks.
+
+Several key insights relating to the project’s hypotheses emerge from this temporal analysis. Hypothesis A, concerning the development–resilience link, is partially supported but not uniformly across time. Wealthier regions (Europe and, to an extent, Oceania) maintain more stable and positive RRS trajectories, suggesting that higher levels of human development and stronger baseline economic structures indeed help countries return to pre-disaster growth more rapidly. However, the line-chart also exposes clear exceptions: for example, Asia’s performance around 2011–2013 dips sharply negative despite generally strong regional economic growth. This illustrates that GDP expansion alone does not guarantee resilience; shocks that affect institutional or logistical components of recovery may still lead to delayed rebounds.
+
+More decisively, the chart provides strong evidence for Hypothesis B, the governance and information-systems multiplier. The relative resilience of Europe—despite facing diverse hazards ranging from heatwaves and floods to industrial accidents—highlights the stabilising effect of well-coordinated governance, rapid dissemination of information, and predetermined response protocols. Conversely, the deep negative spikes visible in Africa and parts of the Americas point to the structural challenges faced by regions with weaker institutional capacity or fragmented governance systems, where disasters disrupt not only economic activity but also state functioning. The sharp dips are not merely reflections of economic weakness but manifestations of uneven administrative preparedness, inadequate early-warning systems, and limited ability to mobilise recovery interventions.
+
+Taken together, the temporal view reveals that resilience is dynamic rather than static: regions do not hold fixed levels of recovery capacity but cycle through periods of strength and vulnerability. Yet the overall pattern is clear: regions with sustained investment in governance, coordination infrastructure, and technological systems exhibit smoother, higher RRS trajectories, while those with institutional fragility experience deeper and more persistent negative shocks. This line-based perspective, therefore, complements the spatial choropleths by showing that resilience inequalities are not only geographic; they evolve across time, often widening during periods of global stress.
+
+\subsection{Scatterplot: HDI, Economic Growth, and Resilience Recovery Score (RRS)}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\linewidth]{visual/scatter plot showing relationship between GDP and hdi.png}
+\caption{Relationship between Human Development Index (HDI), average GDP per capita growth, and the Resilience Recovery Score (RRS). Each point represents a country-level mean (1998–2023), coloured by RRS from low resilience (orange) to high resilience (blue).}
+\label{fig:dataset_overview}
+\end{figure}
+This scatterplot visualisation examines the structural relationship between human development, economic performance, and disaster recovery capacity by plotting average HDI (horizontal axis) against mean GDP per capita growth (vertical axis), with colour encoding representing average RRS. Filter controls allow selective viewing of regions, and tooltips provide country-specific values for all three metrics. The chart reveals a heterogeneous global landscape: countries cluster densely in the mid-to-high HDI range (0.55–0.90) with moderate GDP growth, while low-HDI states are sparsely distributed and display more extreme economic volatility. The RRS colour gradient—from saturated orange (negative resilience outcomes) to deep blue (strong recovery)—provides an additional interpretive layer across the cloud of points.
+
+Three overarching patterns emerge. Firstly, there is a visible positive association between HDI and GDP growth stability. Countries with HDI above 0.75 tend to cluster around modest but positive average growth rates, forming a compact band of points shaded mostly in light blue and grey. This partially supports Hypothesis A, which proposes that higher human development and socio-economic wellbeing underpin stronger baseline resilience. High-HDI European states such as Poland (HDI around 0.86; GDP growth around 3.89\%) appear in this upper-right quadrant, yet their RRS values are modest rather than exceptional, highlighting that prosperity alone does not guarantee rapid post-disaster recovery. This nuance directly reflects the underlying structure of RRS, which depends not on absolute growth but on how quickly a country returns to its pre-disaster trend.
+
+Secondly, the scatter reveals a significant number of “decoupled performers”, where GDP growth and HDI appear strong but RRS remains neutral or negative. Lebanon illustrates this clearly: despite a relatively high HDI (~0.75), long-term stagnation and cyclic macroeconomic instability pull its RRS sharply negative (approx. –3.39). Such cases highlight that even countries with respectable human development scores can fail to convert these assets into economic resilience when governance systems are unstable or recovery institutions are under strain. This pattern strongly reinforces Hypothesis B, demonstrating that governance quality—and the technological and administrative systems that enable rapid recovery—is often the decisive factor behind positive RRS values.
+
+Thirdly, there is a notable cluster of mid-HDI countries with moderate growth but unexpectedly positive RRS values, particularly in Asia. Pakistan, for example (HDI of around 0.50; GDP growth of around 1.82\%), displays an RRS value around 0.12—small, but positive. This suggests that even limited economic strength can yield favourable resilience outcomes when recovery dynamics are relatively quick compared to pre-disaster trends. Conversely, several low- and mid-income countries in Africa and the Americas exhibit strong GDP growth volatility (vertical spread) but still produce poor RRS outcomes (deep orange), indicating prolonged recovery periods despite positive economic expansions. These cases demonstrate the multiplier effect of governance capacity: without robust oversight, early warning, and institutional coordination, economic momentum does not translate into resilience.
+
+Overall, the scatterplot reveals that GDP growth and HDI jointly influence but do not determine RRS, confirming that economic development provides an enabling environment (supporting Hypothesis A), whereas governance and modern information systems act as the critical mechanism that converts development into genuine recovery capacity (supporting Hypothesis B). The absence of a simple linear pattern underscores that resilience is a complex emergent property: countries with similar HDI and growth levels can diverge significantly in RRS depending on institutional stability, administrative efficiency, and the technological infrastructure available for managing disasters. The scatter thus complements the spatial and temporal visualisations by illustrating that resilience is not reducible to prosperity; it is fundamentally shaped by how effectively countries leverage their developmental and institutional foundations in the aftermath of disaster.
+
+\subsection{Integrated Dashboard: Multidimensional Exploration of Global Resilience Dynamics}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\linewidth]{visual/dashboard.png}
+\caption{Composite resilience dashboard integrating a choropleth map of RRS, a temporal line-chart of regional resilience trends, and a scatterplot of HDI–GDP–RRS relationships. All panels are linked through shared filters for year, region, disaster type, and RRS colour encoding (orange = low resilience; blue = high resilience).}
+\label{fig:dataset_overview}
+\end{figure}
+The interactive dashboard brings together three complementary visualisations—spatial, temporal, and relational—to form a unified analytic environment for exploring resilience patterns in the RRS\_v11 dataset. The top panel features a global choropleth map shaded by average RRS, enabling immediate comparison of resilience levels across countries and continents. The lower-left panel displays the temporal evolution of RRS by region, illustrating fluctuations and long-term shifts in resilience capacity from 1998 to 2023. The lower-right scatterplot examines the structural relationship between average HDI, average GDP per capita growth, and RRS, colour-encoded using the same resilience gradient as the map. All components share the same filter set—year slider, region selector, and a full disaster-type taxonomy—ensuring that adjustments in one view dynamically update all others. Tooltips throughout provide country-specific values, allowing users to contextualise anomalies and emergent patterns.
+
+The dashboard’s strength lies in its ability to reveal cross-dimensional consistencies and contrasts. The choropleth map highlights clear spatial clustering: Europe and parts of Oceania consistently appear in blue, signalling rapid post-disaster recovery, whereas South Asia, parts of Africa, and large sections of Latin America often appear in orange, indicating slower or unstable recovery trajectories. When these clusters are examined through the temporal line-chart, their underlying dynamics become visible. Europe maintains moderately positive and relatively stable resilience patterns over time; Oceania exhibits sharp peaks and troughs reflecting hazard profiles with episodic high-impact events; the Americas display increasingly negative volatility in the post-2010 era. Africa, meanwhile, shows frequent negative excursions, suggesting repeated difficulties returning to pre-disaster growth baselines.
+
+The scatterplot completes the interpretative triad by revealing why these regional outcomes diverge. High-HDI and moderately growing economies cluster in the upper-right quadrant, yet their RRS values vary widely depending on governance effectiveness. Japan and the United States, for example, appear in strong blue shades despite exposure to large-scale disasters, illustrating that robust governance systems and advanced early-warning technologies accelerate recovery even when hazard intensity is high. Conversely, Lebanon and several South Asian and African states plot with reasonable HDI values but markedly negative RRS, evidencing that persistent macroeconomic fragility and institutional strain undermine resilience. Mid-HDI states such as Pakistan and Indonesia show modest yet positive RRS values, demonstrating partial resilience despite economic constraints.
+
+The dashboard provides powerful joint evidence for both hypotheses. Hypothesis A, which posits that economic development and human wellbeing provide a foundation for resilience, is supported by the clustering of high-HDI, stable-growth countries in the upper spectrum of the RRS gradient. However, the dashboard also makes clear that this relationship is far from deterministic: several prosperous states still fall into neutral or negative RRS values when recovery dynamics falter. In turn, Hypothesis B—the governance multiplier—is strongly validated. Across the dashboard, governance capacity emerges as the consistent differentiator: nations with strong administrative coordination, information systems, and institutional readiness display faster recovery regardless of income level, while those with weak governance remain trapped in negative RRS zones even when HDI or growth performance appears adequate.
+
+Taken together, the dashboard illustrates that resilience is an inherently multidimensional phenomenon: it is geographical, temporal, and structurally mediated. By enabling the user to traverse these dimensions simultaneously, the dashboard not only synthesises the core findings of the RRS\_v11 dataset but also highlights the systemic inequalities that shape how countries endure and recover from disaster events.
+
+\section{Key Insights, Trends, Patterns, and Anomalies}
+\noindent
+The visual analyses produced through the choropleth maps, temporal line-series, scatterplots, and integrated dashboard reveal several recurring structural patterns in global resilience, as well as notable exceptions that complicate traditional assumptions about post-disaster recovery. Together, these visualisations demonstrate that resilience is not solely a function of economic strength or development level; rather, it emerges from the interplay between prosperity, governance quality, institutional preparedness, and the nature of the hazards encountered. The following insights summarise the most prominent cross-cutting trends observed in the RRS\_v11 dataset.
+
+\paragraph{A Persistent Global Resilience Divide}
+Across all visual representations, a clear spatial polarity emerges between regions characterised by strong governance systems and those facing systemic institutional constraints. Europe, Oceania, and parts of East Asia frequently appear in the upper resilience bands, with predominantly blue shading and relatively stable year-on-year trajectories. By contrast, South Asia, Sub-Saharan Africa, and much of Latin America exhibit consistently lower RRS values, reflecting slower returns to pre-disaster growth baselines. This global divide supports the notion that resilience is structurally uneven and deeply influenced by long-term state capacity and institutional continuity.
+
+\paragraph{Development Helps—but Does Not Guarantee—Resilience}
+The scatterplot shows a loose but recognisable tendency for high-HDI countries to exhibit more positive RRS outcomes, partially confirming Hypothesis A. However, the dispersion of points across the upper-HDI range demonstrates that prosperity alone does not secure rapid recovery. Several countries with strong human development performance, such as Lebanon or parts of Latin America, display unexpectedly negative RRS values due to macroeconomic instability or governance stress. Conversely, mid-income states like Indonesia and Pakistan produce modest but positive resilience scores, highlighting that economic development provides an enabling environment but not a deterministic guarantee of resilience.
+
+\paragraph{Governance Quality as the Decisive Multiplier}
+Across maps, lines, and scatterplots, governance consistently emerges as the most powerful differentiator of resilience performance, strongly validating Hypothesis B. Countries with advanced early-warning systems, coherent administrative coordination, and reliable public institutions—such as Japan, the United States, Chile, and several EU members—recover faster even when exposed to severe or high-frequency hazards. States with weak institutional frameworks, limited information infrastructures, or political instability experience prolonged downturns regardless of their HDI or GDP growth. This reinforces the interpretation that governance capacity does not merely influence resilience; it amplifies or suppresses the effectiveness of all other determinants.
+
+\paragraph{High Temporal Volatility in Disaster Recovery}
+The line charts reveal pronounced year-on-year variation across all regions. Peaks often coincide with periods of rapid post-crisis rebound, while troughs reflect major disaster shocks or cumulative hazard sequences. This volatility is especially pronounced in Oceania and Africa, where economies are more sensitive to extreme events or structural fragility. The Americas also show a marked decline around 2021–2022, reflecting pandemic-era instability. These cycles illustrate that resilience is a dynamic, path-dependent process rather than a static national characteristic.
+
+\paragraph{Clusters, Outliers, and Intriguing Exceptions}
+Several countries position themselves outside expected patterns. Japan and Chile stand out as high-resilience outliers despite frequent severe disasters, demonstrating how strong governance structures can offset hazard intensity. Lebanon, on the other hand, displays a severe mismatch between its HDI level and its negative RRS, highlighting the destabilising role of political and macroeconomic crises. Kazakhstan emerges as a positive mid-income outlier, achieving resilience scores above those of many richer states. Meanwhile, Sub-Saharan African nations show wide dispersion, from modestly positive values in Botswana to deep negative RRS in more unstable contexts. These outliers are analytically valuable because they reveal where resilience mechanisms diverge from the developmental norm.
+
+\paragraph{Multi-Hazard Interactions Shape Regional Outcomes}
+Filtering the dashboard by disaster type reveals that regions with exposure to compound hazards—e.g., droughts combined with epidemics, or earthquakes followed by storms—tend to show more volatile or depressed resilience values. This is especially visible in South Asia, where overlapping climate-driven and geological risks exacerbate recovery times. Conversely, some highly exposed regions, such as Japan, maintain strong RRS values due to robust preparedness systems, again emphasising the governance multiplier.
+
+\paragraph{A Converging Narrative: Resilience as a Systemic Property}
+Across all visualisations, the evidence converges on a central insight: resilience is not reducible to any single indicator. It arises from interactions between socio-economic strength, governance capacity, technological systems, and hazard profiles. Countries with strong governance and stable macroeconomic frameworks convert development into effective recovery; those with fragile institutions cannot. This systemic understanding aligns directly with the conceptual framing of the RRS and underscores why resilience should be interpreted not as a static national trait but as the outcome of complex structural processes.
+
+\section{Comparative Analysis of Visualisation Approaches}
+\noindent
+The project employs a range of complementary visualisation methods—geographical, temporal, and multivariate—to interrogate the structural drivers of disaster resilience. Each approach offers a distinct analytical vantage point, revealing different facets of the Resilience Recovery Score (RRS) and enabling cross-validation between spatial patterns, long-term trends, and multidimensional relationships. Together, these visualisations construct a coherent evidential framework, allowing the study to trace how resilience emerges, fluctuates, and diverges across the global system.
+
+\paragraph{Spatial Visualisation: Choropleth Maps}
+The choropleth maps provide an immediate and intuitive overview of global resilience gradients. Their chief strength lies in their preservation of geographic context, making visible the clustering of high- and low-resilience regions. By juxtaposing countries across continents, the maps reveal a persistent resilience divide: Europe and parts of East Asia consistently exhibit high RRS values, while South Asia, Sub-Saharan Africa, and much of Latin America display weaker performance. The use of a continuous colour scale from orange (low RRS) to blue (high RRS) facilitates rapid identification of outliers such as Japan (strong resilience despite frequent hazards) and Lebanon (negative resilience despite moderate HDI). However, maps alone cannot reveal temporal volatility or structural mechanisms, limiting their explanatory depth.
+
+\paragraph{Temporal Visualisation: Line Charts}
+The line charts illuminate how resilience evolves, offering a dynamic, longitudinal perspective. By plotting regional averages year by year, they highlight the cyclical nature of post-disaster recovery and expose periods of acute vulnerability. Unlike the static choropleths, the line-series demonstrate that resilience trajectories are neither uniform nor stable: even regions with strong governance systems experience downturns during major global shocks. The line charts thus reveal volatility and structural fragility that cannot be detected spatially, providing critical insight into the temporal behaviour of RRS. Their weakness lies in aggregation: regional lines may obscure intra-regional variation and country-specific dynamics.
+
+\paragraph{Multivariate Visualisation: Scatterplots}
+The scatterplots serve a distinct analytical purpose by examining the structural relationships between HDI, GDP growth, and RRS. Rather than mapping resilience across space or time, they reveal how resilience aligns—or fails to align—with socio-economic development. This makes them essential for hypothesis testing: they show that GDP growth and HDI provide enabling conditions for resilience (supporting Hypothesis A) but do not mechanically determine RRS. The scatterplots expose “decoupled” cases such as Lebanon, where relatively strong human development coexists with severe negative RRS, and “positive outliers” such as Kazakhstan, where modest development is accompanied by unexpectedly strong resilience. Their limitation is that they abstract away geography and chronology, narrowing the analysis to indicator-level relationships.
+
+\paragraph{Integrated Analysis: The Dashboard as a Synthesis Tool}
+The dashboard brings these visualisation modes together into a unified analytical interface. By linking maps, line charts, and scatterplots through shared filters for year, region, and hazard type it allows users to observe how patterns shift across spatial, temporal, and structural dimensions simultaneously. This integrated environment is particularly effective for detecting multi-layer interactions—for example, how a country’s hazard profile influences its temporal trajectory, or how a regional downturn aligns with clusters in the scatterplot. The dashboard strengthens inferential validity by enabling cross-view triangulation: patterns visible in one visual form can be immediately tested against others. Its limitation is cognitive: the multiplicity of views may overwhelm inexperienced users, although this is mitigated by consistent colour schemes and clear tooltips.
+
+\paragraph{Complementarity and Limitations Across Methods}
+Taken together, the visualisations demonstrate that no single method is sufficient for capturing the full complexity of resilience. Spatial maps reveal global divides; temporal lines reveal volatility; scatterplots reveal structural relationships; dashboards reveal systemic interactions. Each method has limitations—maps oversimplify, lines aggregate, and scatterplots abstract—but their combined use ensures a balanced and rigorous exploration of resilience. This multimodal approach reflects best practice in resilience analytics by acknowledging that the phenomena under investigation are inherently multidimensional, non-linear, and context-dependent.
+
+\paragraph{Implications for Hypothesis Testing}
+By comparing insights across visualisation types, the study confirms that both hypotheses are supported, but in different ways. Hypothesis A finds partial support in the scatterplots and map patterns, where higher-HDI clusters align with stronger resilience. Hypothesis B finds strong support across all visualisations: regions with advanced governance infrastructures consistently outperform economic peers, and the dashboard demonstrates how this manifests spatially, temporally, and structurally. The comparative analysis, therefore, strengthens the evidential basis for the study’s conclusions by showing that the relationship between development, governance, and resilience is robust across multiple visual modes. 
+
+\section{Conclusions \& Hypothesis Evaluation}
+\noindent
+The analyses conducted through spatial, temporal, and multivariate visualisations collectively demonstrate that disaster resilience—captured through the Resilience Recovery Score (RRS)—is shaped by a complex interplay of economic development, governance capacity, and hazard exposure. By integrating post-disaster GDP rebound dynamics with human development and institutional quality, the RRS provides a more realistic measure of resilience than conventional static indicators. Across the full dataset (1998–2023), several consistent structural patterns emerge, revealing both broad global divides and important regional or national exceptions. These findings allow for a systematic evaluation of the study’s two hypotheses.
+
+\paragraph{Evaluation of Hypothesis A}
+Hypothesis A proposed that while GDP growth is known to correlate with improvements in human development and subjective well-being, it is unclear whether this developmental gradient also translates into stronger resilience as captured by the RRS. The results provide partial support for this hypothesis. Choropleth maps and scatterplots reveal that higher-HDI states tend to diverge towards positive or neutral RRS values, and extremely low-HDI states rarely achieve sustained resilience. However, the relationship is neither linear nor deterministic. The scatterplots show wide dispersion within high-HDI clusters, with some countries—such as Lebanon or certain Latin American economies—falling into negative RRS zones despite respectable human development scores. Conversely, several mid-income states, including Pakistan and Indonesia, demonstrate modest but positive RRS performance, suggesting effective recovery mechanisms despite developmental constraints.
+
+Thus, the evidence supports the notion that development provides an enabling environment for resilience but not a guarantee. Economic growth and high HDI improve the foundational conditions for recovery—such as education, infrastructure, healthcare, and institutional reach—but they do not, on their own, determine how rapidly a nation rebounds after a disaster. RRS outcomes depend on how effectively these developmental assets are mobilised in crisis contexts.
+
+\paragraph{Evaluation of Hypothesis B}
+Hypothesis B proposed that modern governance systems—supported by technological innovation, early-warning capacities, and coordinated public institutions—act as a decisive multiplier of resilience, surpassing the explanatory power of economic development alone. The visual analyses offer strong and consistent support for this hypothesis across all dimensions. High-performing outliers such as Japan, the United States, Chile, and several EU countries maintain positive RRS values despite experiencing frequent or severe hazards. Their resilience trajectories reveal rapid economic rebound, efficient crisis coordination, and the effective use of information systems. Conversely, states characterised by fragile governance, political instability, or limited technological capacity frequently display deep negative RRS values, regardless of their development status. The temporal line charts, in particular, show that governance-strong regions exhibit steadier and more predictable resilience trajectories, whereas governance-weak regions experience repeated volatility and prolonged downturns.
+
+This pattern confirms that governance quality is the primary mechanism through which development translates into resilience. Without strong institutions, early-warning systems, and coordinated recovery structures, even economically stronger states can struggle to return to their pre-disaster growth baselines. With these systems in place, however, even moderately developed countries can achieve surprisingly robust resilience outcomes. In this sense, governance and technological coordination are not merely contributors to resilience—they are necessary conditions that amplify or suppress the impact of all other resilience determinants.
+
+\paragraph{Overall Conclusions}
+The combined evidence from the RRS dataset and its associated visualisations demonstrates that resilience is best understood as a systemic and emergent property, arising from interactions rather than isolated factors. Development matters, but its influence is mediated and often overshadowed by the quality of governance. Hazard type and frequency create the context in which resilience must operate, but institutional capacity determines how effectively nations convert development into recovery. This conclusion aligns with contemporary resilience scholarship, which increasingly emphasises state capability, information infrastructure, and coordinated governance as key determinants of long-term resilience.
+
+From a policy perspective, the findings suggest that investments in governance systems—such as early-warning networks, disaster preparedness units, emergency coordination bodies, and data-driven decision platforms—may yield greater improvements in resilience than development gains alone. The RRS thus highlights an actionable pathway: resilience cannot be purchased through prosperity alone; it must be organised, coordinated, and institutionally embedded.
+
+\begin{thebibliography}{00}
+
+\bibitem{emdat}
+EM-DAT: The International Disaster Database, Centre for Research on the Epidemiology of Disasters (CRED), UCLouvain, 2025. 
+Available: \url{https://public.emdat.be/data}. 
+Data documentation: \url{https://doc.emdat.be/docs/data-structure-and-content/emdat-sources/}.
+
+\bibitem{wb_gdp_ppp}
+World Bank, “GDP per capita (PPP, constant international \$),” World Development Indicators, 2025. 
+Available: \url{https://databank.worldbank.org/source/world-development-indicators}.
+
+\bibitem{wb_gdp_growth}
+World Bank, “GDP Annual Growth Rate (\%),” World Development Indicators, 2025. 
+Available: \url{https://databank.worldbank.org/source/world-development-indicators}.
+
+\bibitem{hdi_undp}
+United Nations Development Programme (UNDP), “Human Development Index (HDI),” Human Development Data Centre, 2024. 
+Available: \url{https://hdr.undp.org/data-center/documentation-and-downloads}.
+
+\bibitem{wgi}
+World Bank, “Worldwide Governance Indicators (WGI): Methodology, Definitions, FAQ,” 2025. 
+Available: \url{https://www.worldbank.org/en/publication/worldwide-governance-indicators/frequently-asked-questions}.
+
+\bibitem{owid_population}
+United Nations, World Population Prospects (2024), processed by Our World in Data, 2024. 
+Citation guidance: Please credit all original providers; data licensed under original terms.
+
+\bibitem{owid_emdat_processed}
+CRED/UCLouvain, EM-DAT (2025), with major processing by Our World in Data, 2025. 
+Citation guidance: Please credit all original providers; data licensed under original terms.
+
+\bibitem{owid_macro}
+Eurostat, OECD, IMF, World Bank (2025), minor processing by Our World in Data, 2025. 
+Citation guidance: Data remain subject to the original provider licence terms.
+
+\bibitem{owid_macro2}
+Eurostat, OECD, World Bank (2025), minor processing by Our World in Data, 2025. 
+Citation guidance: Data remain subject to the original provider licence terms.
+
+\bibitem{vdem}
+Varieties of Democracy (V-Dem) Dataset, 2025, processed by Our World in Data. 
+Citation guidance: Data remain subject to the original provider licence terms.
+
+\bibitem{owid_energy}
+World Bank SDG 7.1.1 Electrification Dataset (2025); U.S. Energy Information Administration (2025); Energy Institute – Statistical Review of World Energy (2025); UN World Population Prospects (2024); HYDE (2023); Gapminder, Systema Globalis (2022); with major processing by Our World in Data.
+Citation guidance: Credit all sources listed; data subject to original licence terms.
+
+\bibitem{jmp_water}
+WHO/UNICEF Joint Monitoring Programme for Water Supply, Sanitation and Hygiene (JMP), 2024, with major processing by Our World in Data. 
+Citation guidance: Data subject to original provider terms.
+
+\bibitem{jmp_sanitation}
+WHO/UNICEF Joint Monitoring Programme (JMP), 2024, with major processing by Our World in Data. 
+Citation guidance: Data subject to original provider terms.
+
+\bibitem{poverty}
+World Bank Poverty and Inequality Platform (2025); HYDE (2023); Gapminder (2022); UN World Population Prospects (2024); major processing by Our World in Data. 
+Citation guidance: Data subject to original provider terms.
+
+\bibitem{poverty2}
+World Bank Poverty and Inequality Platform (2025), major processing by Our World in Data, 2025.
+Citation guidance: Data subject to original licence terms.
+
+\bibitem{oecd_tax}
+OECD (2023); OECD (1985); Lindert (2004), with major processing by Our World in Data. 
+Citation guidance: Data remain subject to original provider terms.
+
+\bibitem{who_gho}
+World Health Organisation, Global Health Observatory (GHO), 2025, processed by Our World in Data. 
+Citation guidance: Data remain subject to the original provider licence terms.
+
+\end{thebibliography}
+
+
+\end{document}

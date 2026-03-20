@@ -1,0 +1,1622 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20252.25.1003.1601                               -->
+<workbook original-version='18.1' source-build='2025.2.4 (20252.25.1003.1601)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <MapboxVectorStylesAndLayers />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='RSS_v11' inline='true' name='federated.16o3urd0zc38pz1fb7ri9092gslm' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='RSS_v11' name='textscan.1kdd7wz0uh66dy1b8s2f20rtah5q'>
+            <connection class='textscan' directory='D:/Downloads/University/DAV Lab/Project/RSS' filename='RSS_v11.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1kdd7wz0uh66dy1b8s2f20rtah5q' name='RSS_v11.csv' table='[RSS_v11#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='Year' ordinal='0' />
+            <column datatype='string' name='Country' ordinal='1' />
+            <column datatype='string' name='Disaster Type' ordinal='2' />
+            <column datatype='string' name='Disaster Subtype' ordinal='3' />
+            <column datatype='string' name='Region' ordinal='4' />
+            <column datatype='string' name='Location' ordinal='5' />
+            <column datatype='integer' name='Total Deaths' ordinal='6' />
+            <column datatype='integer' name='No. Injured' ordinal='7' />
+            <column datatype='integer' name='No. Affected' ordinal='8' />
+            <column datatype='integer' name='No. Homeless' ordinal='9' />
+            <column datatype='integer' name='Total Affected' ordinal='10' />
+            <column datatype='real' name='CPI' ordinal='11' />
+            <column datatype='real' name='GDP PPP (2021 international constant $)' ordinal='12' />
+            <column datatype='integer' name='population' ordinal='13' />
+            <column datatype='real' name='affected_population' ordinal='14' />
+            <column datatype='integer' name='ID' ordinal='15' />
+            <column datatype='real' name='percentile rank' ordinal='16' />
+            <column datatype='real' name='GovIndex' ordinal='17' />
+            <column datatype='real' name='GDP per capita growth (annual %)' ordinal='18' />
+            <column datatype='integer' name='recovery_years' ordinal='19' />
+            <column datatype='real' name='HDI' ordinal='20' />
+            <column datatype='real' name='GDP_GrowthPost' ordinal='21' />
+            <column datatype='real' name='GDP_GrowthPre' ordinal='22' />
+            <column datatype='real' name='RRS' ordinal='23' />
+            <column datatype='string' name='Country_Name' ordinal='24' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Year]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Country</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Country]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>Country</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Disaster Type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Disaster Type]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>Disaster Type</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Disaster Subtype</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Disaster Subtype]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>Disaster Subtype</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Region</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Region]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>Region</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Location</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Location]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>Location</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Total Deaths</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Total Deaths]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>Total Deaths</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>No. Injured</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[No. Injured]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>No. Injured</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>No. Affected</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[No. Affected]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>No. Affected</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>No. Homeless</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[No. Homeless]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>No. Homeless</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Total Affected</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Total Affected]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>Total Affected</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CPI</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[CPI]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>CPI</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GDP PPP (2021 international constant $)</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[GDP PPP (2021 international constant $)]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>GDP PPP (2021 international constant $)</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>population</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[population]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>population</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>affected_population</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[affected_population]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>affected_population</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ID]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>ID</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>percentile rank</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[percentile rank]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>percentile rank</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GovIndex</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[GovIndex]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>GovIndex</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GDP per capita growth (annual %)</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[GDP per capita growth (annual %)]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>GDP per capita growth (annual %)</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>recovery_years</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[recovery_years]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>recovery_years</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>HDI</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[HDI]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>HDI</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GDP_GrowthPost</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[GDP_GrowthPost]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>GDP_GrowthPost</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GDP_GrowthPre</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[GDP_GrowthPre]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>GDP_GrowthPre</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>RRS</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[RRS]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>RRS</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Country_Name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Country_Name]</local-name>
+            <parent-name>[RSS_v11.csv]</parent-name>
+            <remote-alias>Country_Name</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Risk' datatype='real' name='[Calculation_1510113262440226817]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[Total Affected]/[population]*100' />
+      </column>
+      <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Country Name' datatype='string' name='[Country_Name]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='GDP GrowthPost' datatype='real' name='[GDP_GrowthPost]' role='measure' type='quantitative' />
+      <column caption='GDP GrowthPre' datatype='real' name='[GDP_GrowthPre]' role='measure' type='quantitative' />
+      <column caption='Gov Index' datatype='real' name='[GovIndex]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[ID]' role='dimension' type='ordinal' />
+      <column datatype='string' name='[Region]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+      <column caption='RSS_v11.csv' datatype='table' name='[__tableau_internal_object_id__].[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]' role='measure' type='quantitative' />
+      <column caption='Affected Population' datatype='real' name='[affected_population]' role='measure' type='quantitative' />
+      <column caption='Percentile Rank' datatype='real' name='[percentile rank]' role='measure' type='quantitative' />
+      <column caption='Population' datatype='integer' name='[population]' role='measure' type='quantitative' />
+      <column caption='Recovery Years' datatype='integer' name='[recovery_years]' role='measure' type='quantitative' />
+      <column-instance column='[Country_Name]' derivation='None' name='[none:Country_Name:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Region]' derivation='None' name='[none:Region:nk]' pivot='key' type='nominal' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/ibrahim/Documents/My Tableau Repository/Datasources/#TableauTemp_0krywf41wpuwfj12plk4y08go0d4.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='12/01/2025 11:17:21 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Year</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Year]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Year</remote-alias>
+              <ordinal>0</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>24</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Country</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Country]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Country</remote-alias>
+              <ordinal>1</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>188</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Disaster Type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Disaster Type]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Disaster Type</remote-alias>
+              <ordinal>2</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Disaster Subtype</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Disaster Subtype]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Disaster Subtype</remote-alias>
+              <ordinal>3</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>42</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Region</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Region]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Region</remote-alias>
+              <ordinal>4</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Location</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Location]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Location</remote-alias>
+              <ordinal>5</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4462</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Total Deaths</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Total Deaths]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Total Deaths</remote-alias>
+              <ordinal>6</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>296</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>No. Injured</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[No. Injured]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>No. Injured</remote-alias>
+              <ordinal>7</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>355</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>No. Affected</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[No. Affected]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>No. Affected</remote-alias>
+              <ordinal>8</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1216</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>No. Homeless</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[No. Homeless]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>No. Homeless</remote-alias>
+              <ordinal>9</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>252</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Total Affected</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Total Affected]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Total Affected</remote-alias>
+              <ordinal>10</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1713</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>CPI</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[CPI]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>CPI</remote-alias>
+              <ordinal>11</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>24</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>GDP PPP (2021 international constant $)</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[GDP PPP (2021 international constant $)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>GDP PPP (2021 international constant $)</remote-alias>
+              <ordinal>12</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1938</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>population</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[population]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>population</remote-alias>
+              <ordinal>13</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1964</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>affected_population</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[affected_population]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>affected_population</remote-alias>
+              <ordinal>14</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1837</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ID</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[ID]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>ID</remote-alias>
+              <ordinal>15</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>percentile rank</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[percentile rank]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>percentile rank</remote-alias>
+              <ordinal>16</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1085</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>GovIndex</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[GovIndex]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>GovIndex</remote-alias>
+              <ordinal>17</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>539</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>GDP per capita growth (annual %)</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[GDP per capita growth (annual %)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>GDP per capita growth (annual %)</remote-alias>
+              <ordinal>18</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1964</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>recovery_years</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[recovery_years]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>recovery_years</remote-alias>
+              <ordinal>19</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>24</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>HDI</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[HDI]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>HDI</remote-alias>
+              <ordinal>20</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>737</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>GDP_GrowthPost</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[GDP_GrowthPost]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>GDP_GrowthPost</remote-alias>
+              <ordinal>21</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1964</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>GDP_GrowthPre</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[GDP_GrowthPre]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>GDP_GrowthPre</remote-alias>
+              <ordinal>22</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1961</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>RRS</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[RRS]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>RRS</remote-alias>
+              <ordinal>23</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>7038</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Country_Name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Country_Name]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Country_Name</remote-alias>
+              <ordinal>24</ordinal>
+              <family>RSS_v11.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>188</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:Country_Name:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Afghanistan&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Bangladesh&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Region:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Africa&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Oceania&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Europe&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Asia&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Americas&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Pakistan&quot;' />
+      </semantic-values>
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='Year' />
+        <field-sort-custom-order field='Country' />
+        <field-sort-custom-order field='Disaster Type' />
+        <field-sort-custom-order field='Disaster Subtype' />
+        <field-sort-custom-order field='Region' />
+        <field-sort-custom-order field='Location' />
+        <field-sort-custom-order field='Total Deaths' />
+        <field-sort-custom-order field='No. Injured' />
+        <field-sort-custom-order field='No. Affected' />
+        <field-sort-custom-order field='No. Homeless' />
+        <field-sort-custom-order field='Total Affected' />
+        <field-sort-custom-order field='CPI' />
+        <field-sort-custom-order field='GDP PPP (2021 international constant $)' />
+        <field-sort-custom-order field='population' />
+        <field-sort-custom-order field='affected_population' />
+        <field-sort-custom-order field='ID' />
+        <field-sort-custom-order field='percentile rank' />
+        <field-sort-custom-order field='GovIndex' />
+        <field-sort-custom-order field='GDP per capita growth (annual %)' />
+        <field-sort-custom-order field='recovery_years' />
+        <field-sort-custom-order field='HDI' />
+        <field-sort-custom-order field='GDP_GrowthPost' />
+        <field-sort-custom-order field='GDP_GrowthPre' />
+        <field-sort-custom-order field='RRS' />
+        <field-sort-custom-order field='Country_Name' />
+        <field-sort-custom-order field='Geometry (generated)' />
+        <field-sort-custom-order field='Latitude (generated)' />
+        <field-sort-custom-order field='Longitude (generated)' />
+        <field-sort-custom-order field='Calculation_1510113262440087552' />
+        <field-sort-custom-order field='Calculation_1510113262440226817' />
+        <field-sort-custom-order field=':Measure Names' />
+        <field-sort-custom-order field='Multiple Values' />
+      </field-sort-info>
+      <object-graph>
+        <objects>
+          <object caption='RSS_v11.csv' id='RSS_v11.csv_2642FADDD8B34F83A50C3DE92BC266FE'>
+            <properties context=''>
+              <relation connection='textscan.1kdd7wz0uh66dy1b8s2f20rtah5q' name='RSS_v11.csv' table='[RSS_v11#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='Year' ordinal='0' />
+                  <column datatype='string' name='Country' ordinal='1' />
+                  <column datatype='string' name='Disaster Type' ordinal='2' />
+                  <column datatype='string' name='Disaster Subtype' ordinal='3' />
+                  <column datatype='string' name='Region' ordinal='4' />
+                  <column datatype='string' name='Location' ordinal='5' />
+                  <column datatype='integer' name='Total Deaths' ordinal='6' />
+                  <column datatype='integer' name='No. Injured' ordinal='7' />
+                  <column datatype='integer' name='No. Affected' ordinal='8' />
+                  <column datatype='integer' name='No. Homeless' ordinal='9' />
+                  <column datatype='integer' name='Total Affected' ordinal='10' />
+                  <column datatype='real' name='CPI' ordinal='11' />
+                  <column datatype='real' name='GDP PPP (2021 international constant $)' ordinal='12' />
+                  <column datatype='integer' name='population' ordinal='13' />
+                  <column datatype='real' name='affected_population' ordinal='14' />
+                  <column datatype='integer' name='ID' ordinal='15' />
+                  <column datatype='real' name='percentile rank' ordinal='16' />
+                  <column datatype='real' name='GovIndex' ordinal='17' />
+                  <column datatype='real' name='GDP per capita growth (annual %)' ordinal='18' />
+                  <column datatype='integer' name='recovery_years' ordinal='19' />
+                  <column datatype='real' name='HDI' ordinal='20' />
+                  <column datatype='real' name='GDP_GrowthPost' ordinal='21' />
+                  <column datatype='real' name='GDP_GrowthPre' ordinal='22' />
+                  <column datatype='real' name='RRS' ordinal='23' />
+                  <column datatype='string' name='Country_Name' ordinal='24' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='Geo Map'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontsize='10'>Geo Map for risk and resilience gradients.</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='RSS_v11' name='federated.16o3urd0zc38pz1fb7ri9092gslm' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.16o3urd0zc38pz1fb7ri9092gslm'>
+            <column caption='Risk' datatype='real' name='[Calculation_1510113262440226817]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[Total Affected]/[population]*100' />
+            </column>
+            <column caption='Country Name' datatype='string' name='[Country_Name]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column datatype='string' name='[Disaster Type]' role='dimension' type='nominal' />
+            <column datatype='real' name='[RRS]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Region]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Total Affected]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+            <column-instance column='[RRS]' derivation='Avg' name='[avg:RRS:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Country_Name]' derivation='None' name='[none:Country_Name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Disaster Type]' derivation='None' name='[none:Disaster Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Region]' derivation='None' name='[none:Region:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Year]' derivation='None' name='[none:Year:qk]' pivot='key' type='quantitative' />
+            <column caption='Population' datatype='integer' name='[population]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1510113262440226817]' derivation='Sum' name='[sum:Calculation_1510113262440226817:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Disaster Type:nk]' filter-group='5'>
+            <groupfilter function='level-members' level='[none:Disaster Type:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Region:nk]' filter-group='4'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Region:nk]' member='&quot;Americas&quot;' />
+              <groupfilter function='member' level='[none:Region:nk]' member='&quot;Asia&quot;' />
+              <groupfilter function='member' level='[none:Region:nk]' member='&quot;Europe&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Year:qk]' included-values='in-range'>
+            <min>1998</min>
+            <max>2023</max>
+          </filter>
+          <slices>
+            <column>[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Disaster Type:nk]</column>
+            <column>[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Year:qk]</column>
+            <column>[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Region:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.16o3urd0zc38pz1fb7ri9092gslm].[Longitude (generated)]' field-type='quantitative' max='29706410.6547608' min='-15738360.228555862' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.16o3urd0zc38pz1fb7ri9092gslm].[Latitude (generated)]' field-type='quantitative' max='10729051.104657046' min='-957701.24955111998' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='background-color' scope='rows' value='#f0f3fa' />
+            <format attr='background-color' scope='cols' value='#f0f3fa' />
+            <format attr='band-color' scope='rows' value='#f0f3fa' />
+            <format attr='background-color' data-class='total' value='#898989' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='band-color' scope='rows' value='#f0f3fa' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#f0f3fa' />
+            <format attr='band-size' scope='rows' value='1' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.80000001192092896' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[avg:RRS:qk]' />
+              <lod column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Country_Name:nk]' />
+              <tooltip column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[sum:Calculation_1510113262440226817:qk]' />
+              <geometry column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[Geometry (generated)]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#757575'>Country:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Country_Name:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#757575'>Avg RRS:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.16o3urd0zc38pz1fb7ri9092gslm].[avg:RRS:qk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#757575'>Risk:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.16o3urd0zc38pz1fb7ri9092gslm].[sum:Calculation_1510113262440226817:qk]>%]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.16o3urd0zc38pz1fb7ri9092gslm].[Latitude (generated)]</rows>
+        <cols>[federated.16o3urd0zc38pz1fb7ri9092gslm].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{6226BBDE-9697-4238-A804-A9F03E23356F}' />
+    </worksheet>
+    <worksheet name='Line Chart'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontsize='10'>Evolution of Resilience</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='RSS_v11' name='federated.16o3urd0zc38pz1fb7ri9092gslm' />
+          </datasources>
+          <datasource-dependencies datasource='federated.16o3urd0zc38pz1fb7ri9092gslm'>
+            <column datatype='string' name='[Disaster Type]' role='dimension' type='nominal' />
+            <column datatype='real' name='[RRS]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Region]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+            <column-instance column='[RRS]' derivation='Avg' name='[avg:RRS:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Disaster Type]' derivation='None' name='[none:Disaster Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Region]' derivation='None' name='[none:Region:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Year]' derivation='None' name='[none:Year:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Disaster Type:nk]' filter-group='5'>
+            <groupfilter function='level-members' level='[none:Disaster Type:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Region:nk]' filter-group='4'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Region:nk]' member='&quot;Americas&quot;' />
+              <groupfilter function='member' level='[none:Region:nk]' member='&quot;Asia&quot;' />
+              <groupfilter function='member' level='[none:Region:nk]' member='&quot;Europe&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Region:nk]</column>
+            <column>[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Disaster Type:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.16o3urd0zc38pz1fb7ri9092gslm].[avg:RRS:qk]' scope='rows' value='Avg RRS' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Region:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.16o3urd0zc38pz1fb7ri9092gslm].[avg:RRS:qk]</rows>
+        <cols>[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Year:qk]</cols>
+      </table>
+      <simple-id uuid='{7DE0D234-2641-4A4C-ADF3-96CDDE8EA80D}' />
+    </worksheet>
+    <worksheet name='Rough 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='RSS_v11' name='federated.16o3urd0zc38pz1fb7ri9092gslm' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.16o3urd0zc38pz1fb7ri9092gslm'>
+            <column caption='Risk' datatype='real' name='[Calculation_1510113262440226817]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[Total Affected]/[population]*100' />
+            </column>
+            <column caption='Country Name' datatype='string' name='[Country_Name]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column datatype='string' name='[Disaster Type]' role='dimension' type='nominal' />
+            <column datatype='real' name='[RRS]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Total Affected]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+            <column-instance column='[RRS]' derivation='Avg' name='[avg:RRS:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Country_Name]' derivation='None' name='[none:Country_Name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Disaster Type]' derivation='None' name='[none:Disaster Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Year]' derivation='None' name='[none:Year:qk]' pivot='key' type='quantitative' />
+            <column caption='Population' datatype='integer' name='[population]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1510113262440226817]' derivation='Sum' name='[sum:Calculation_1510113262440226817:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Disaster Type:nk]'>
+            <groupfilter function='level-members' level='[none:Disaster Type:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='quantitative' column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Year:qk]' included-values='in-range'>
+            <min>2014</min>
+            <max>2023</max>
+          </filter>
+          <slices>
+            <column>[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Disaster Type:nk]</column>
+            <column>[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Year:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.16o3urd0zc38pz1fb7ri9092gslm].[Longitude (generated)]' field-type='quantitative' max='54254419.108028509' min='-15247552.076712949' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.16o3urd0zc38pz1fb7ri9092gslm].[Latitude (generated)]' field-type='quantitative' max='14042733.774654793' min='-6527099.2479960341' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.80000001192092896' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[avg:RRS:qk]' />
+              <lod column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Country_Name:nk]' />
+              <tooltip column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[sum:Calculation_1510113262440226817:qk]' />
+              <geometry column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[Geometry (generated)]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#757575'>Country Name:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Country_Name:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#757575'>Avg. RRS:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.16o3urd0zc38pz1fb7ri9092gslm].[avg:RRS:qk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#757575'>Risk:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.16o3urd0zc38pz1fb7ri9092gslm].[sum:Calculation_1510113262440226817:qk]>%]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.16o3urd0zc38pz1fb7ri9092gslm].[Latitude (generated)]</rows>
+        <cols>[federated.16o3urd0zc38pz1fb7ri9092gslm].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{35871FC2-77F5-4EB3-BEEB-40557D9C25E5}' />
+    </worksheet>
+    <worksheet name='Rough 2'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{472DF6AD-1A6D-477C-A8C9-19609229E34D}' />
+    </worksheet>
+    <worksheet name='Scatter Plot'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontsize='10'>Scatter Plot (GDP vs HDI vs RRS)</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='RSS_v11' name='federated.16o3urd0zc38pz1fb7ri9092gslm' />
+          </datasources>
+          <datasource-dependencies datasource='federated.16o3urd0zc38pz1fb7ri9092gslm'>
+            <column caption='Country Name' datatype='string' name='[Country_Name]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column datatype='string' name='[Disaster Type]' role='dimension' type='nominal' />
+            <column datatype='real' name='[GDP per capita growth (annual %)]' role='measure' type='quantitative' />
+            <column datatype='real' name='[HDI]' role='measure' type='quantitative' />
+            <column datatype='real' name='[RRS]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Region]' role='dimension' type='nominal' />
+            <column-instance column='[GDP per capita growth (annual %)]' derivation='Avg' name='[avg:GDP per capita growth (annual %):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[HDI]' derivation='Avg' name='[avg:HDI:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[RRS]' derivation='Avg' name='[avg:RRS:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Country_Name]' derivation='None' name='[none:Country_Name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Disaster Type]' derivation='None' name='[none:Disaster Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Region]' derivation='None' name='[none:Region:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Disaster Type:nk]' filter-group='5'>
+            <groupfilter function='level-members' level='[none:Disaster Type:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Region:nk]' filter-group='4'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Region:nk]' member='&quot;Americas&quot;' />
+              <groupfilter function='member' level='[none:Region:nk]' member='&quot;Asia&quot;' />
+              <groupfilter function='member' level='[none:Region:nk]' member='&quot;Europe&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Region:nk]</column>
+            <column>[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Disaster Type:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.16o3urd0zc38pz1fb7ri9092gslm].[avg:GDP per capita growth (annual %):qk]' scope='rows' value='Avg GDP Growth (Annual %)' />
+            <format attr='height' field='[federated.16o3urd0zc38pz1fb7ri9092gslm].[avg:HDI:qk]' value='51' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[avg:RRS:qk]' />
+              <text column='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Country_Name:nk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text />
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='has-stroke' value='false' />
+                <format attr='size' value='1.637182354927063' />
+                <format attr='mark-transparency' value='196' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='1337' />
+                <format attr='maxwidth' value='1337' />
+                <format attr='minheight' value='721' />
+                <format attr='maxheight' value='721' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.16o3urd0zc38pz1fb7ri9092gslm].[avg:GDP per capita growth (annual %):qk]</rows>
+        <cols>[federated.16o3urd0zc38pz1fb7ri9092gslm].[avg:HDI:qk]</cols>
+      </table>
+      <simple-id uuid='{551AFE6C-1359-48DC-B355-887463332E35}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Main Dashboard'>
+      <style>
+        <style-rule element='table'>
+          <format attr='background-color' value='#e6e6e6' />
+        </style-rule>
+      </style>
+      <size maxheight='800' maxwidth='1800' minheight='800' minwidth='1200' sizing-mode='range' />
+      <datasources>
+        <datasource caption='RSS_v11' name='federated.16o3urd0zc38pz1fb7ri9092gslm' />
+      </datasources>
+      <datasource-dependencies datasource='federated.16o3urd0zc38pz1fb7ri9092gslm'>
+        <column datatype='string' name='[Disaster Type]' role='dimension' type='nominal' />
+        <column datatype='string' name='[Region]' role='dimension' type='nominal' />
+        <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+        <column-instance column='[Disaster Type]' derivation='None' name='[none:Disaster Type:nk]' pivot='key' type='nominal' />
+        <column-instance column='[Region]' derivation='None' name='[none:Region:nk]' pivot='key' type='nominal' />
+        <column-instance column='[Year]' derivation='None' name='[none:Year:qk]' pivot='key' type='quantitative' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='7' param='horz' type-v2='layout-flow' w='98834' x='583' y='1000'>
+            <zone h='98000' id='5' type-v2='layout-basic' w='83248' x='583' y='1000'>
+              <zone h='48999' id='3' name='Geo Map' w='83248' x='583' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                  <format attr='background-color' value='#f7f7f0' />
+                </zone-style>
+              </zone>
+              <zone h='49001' id='12' name='Line Chart' w='41602' x='583' y='49999'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                  <format attr='background-color' value='#f7f7f0' />
+                </zone-style>
+              </zone>
+              <zone h='49001' id='15' name='Scatter Plot' w='41646' x='42185' y='49999'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                  <format attr='background-color' value='#f7f7f0' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='214' h='98000' id='6' is-fixed='true' param='vert' type-v2='layout-flow' w='15586' x='83831' y='1000'>
+              <zone h='8625' id='9' name='Geo Map' param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Year:qk]' show-domain='false' show-null-ctrls='false' type-v2='filter' w='15586' x='83831' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='39625' id='10' name='Geo Map' param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Disaster Type:nk]' type-v2='filter' w='15586' x='83831' y='9625'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='8125' id='11' name='Geo Map' pane-specification-id='0' param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[avg:RRS:qk]' type-v2='color' w='15586' x='83831' y='49250'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='18250' id='13' name='Line Chart' param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Region:nk]' type-v2='filter' w='15586' x='83831' y='57375'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='15750' id='14' name='Line Chart' pane-specification-id='0' param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Region:nk]' type-v2='color' w='15586' x='83831' y='75625'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1200' minheight='1200' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='24' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='23' param='vert' type-v2='layout-flow' w='98834' x='583' y='1000'>
+                <zone h='8625' id='9' name='Geo Map' param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Year:qk]' show-domain='false' show-null-ctrls='false' type-v2='filter' w='15586' x='83831' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='39625' id='10' mode='checkdropdown' name='Geo Map' param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Disaster Type:nk]' type-v2='filter' w='15586' x='83831' y='9625'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='48999' id='3' is-fixed='true' name='Geo Map' w='83248' x='583' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#f7f7f0' />
+                  </zone-style>
+                </zone>
+                <zone h='8125' id='11' name='Geo Map' pane-specification-id='0' param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[avg:RRS:qk]' type-v2='color' w='15586' x='83831' y='49250'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='18250' id='13' mode='checkdropdown' name='Line Chart' param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Region:nk]' type-v2='filter' w='15586' x='83831' y='57375'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49001' id='12' is-fixed='true' name='Line Chart' w='41602' x='583' y='49999'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#f7f7f0' />
+                  </zone-style>
+                </zone>
+                <zone h='15750' id='14' name='Line Chart' pane-specification-id='0' param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Region:nk]' type-v2='color' w='15586' x='83831' y='75625'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49001' id='15' is-fixed='true' name='Scatter Plot' w='41646' x='42185' y='49999'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#f7f7f0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{D4B6792D-C73B-43CE-B68A-4B6B457C4713}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Geo Map'>
+      <cards>
+        <edge name='left'>
+          <strip size='100'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='251'>
+            <card param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Region:nk]' size='93' type='filter' />
+            <card param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Year:qk]' show-domain='false' show-null-ctrls='false' size='44' type='filter' />
+            <card param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Disaster Type:nk]' size='292' type='filter' />
+            <card pane-specification-id='0' param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[avg:RRS:qk]' size='40' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{2E8DE193-FCF8-4963-9F38-D7F9A6ABC2CD}' />
+    </window>
+    <window class='worksheet' name='Line Chart'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Region:nk]' type='filter' />
+            <card pane-specification-id='0' param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Region:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{AF3CA369-5F89-481C-9CA6-B7A9CE30B2AC}' />
+    </window>
+    <window class='worksheet' name='Scatter Plot'>
+      <cards>
+        <edge name='left'>
+          <strip size='100'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Region:nk]' type='filter' />
+            <card pane-specification-id='0' param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[avg:RRS:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{669742AD-BEBA-45F2-8968-31060363ACCA}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Main Dashboard'>
+      <viewpoints>
+        <viewpoint name='Geo Map'>
+          <zoom type='entire-view' />
+          <default-map-tool-selection tool='1' />
+        </viewpoint>
+        <viewpoint name='Line Chart'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Scatter Plot'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='3' />
+      <simple-id uuid='{22D0BC3F-01AC-4058-A7A8-2F273E86095F}' />
+    </window>
+    <window class='worksheet' name='Rough 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Year:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+            <card param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[none:Disaster Type:nk]' type='filter' />
+            <card pane-specification-id='0' param='[federated.16o3urd0zc38pz1fb7ri9092gslm].[avg:RRS:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{9D3E069C-A4BD-450D-98D1-A5122743F7E7}' />
+    </window>
+    <window class='worksheet' name='Rough 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{0D9D65B1-B67D-4662-AC1F-18C3BEAF4C89}' />
+    </window>
+  </windows>
+</workbook>

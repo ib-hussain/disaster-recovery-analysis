@@ -3,7 +3,6 @@
 ## Overview
 Understanding how nations withstand, absorb, and recover from disasters is a critical challenge in modern risk analytics. This project develops a data-driven framework for measuring national resilience using multisource global datasets spanning 1998–2023. By integrating disaster event records, macroeconomic growth indicators, and socio-institutional variables, the study introduces and evaluates the **Resilience Recovery Score (RRS)**. It explores why some countries bounce back rapidly from disasters while others remain trapped in prolonged economic stagnation.
 
-## Comprehensive Project Report
 For an in-depth breakdown of our methodology, data exploration, index failure analysis, and complete hypothesis evaluations, please read the full **[report](docs/Report.pdf)**.
 
 ## Key Insights & Visualisations

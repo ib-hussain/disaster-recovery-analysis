@@ -62,5 +62,4 @@ Data operations involved extensive data cleaning, multi-source fusion, and compu
 ## Related Research
 
 See also: 
-- [Visualizations on Social & Electoral Trends](https://github.com/ib-hussain/social-electoral-dynamics)
 - [Investigating the Secret To Happiness](https://github.com/ib-hussain/secret_to_happiness)

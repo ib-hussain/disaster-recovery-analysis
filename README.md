@@ -46,7 +46,7 @@ Data operations involved extensive data cleaning, multi-source fusion, and compu
 
 ## Research Team
 
-- [**Sameer Khan**](https://github.com/Sameer-Khan08) - [sameer.khan@gmail.com](mailto:sameer.khan@gmail.com)
+- [**Sameer Khan**](https://github.com/Sameer-Khan08) - [khanhamzazai5@gmail.com](mailto:khanhamzazai5@gmail.com)
   - Conducted data visualisation design and dashboard implementation.
   - Advised on data engineering strategies and statistical transformations.
   - Sourced 50% of the project datasets and co-authored the final report.
